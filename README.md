@@ -20,6 +20,23 @@ Set-ExecutionPolicy -Scope Process Bypass
 ./scripts/install.ps1
 ```
 
+## WSL snapshot (optional)
+Export your configured Ubuntu to a tar snapshot:
+```powershell
+./scripts/wsl-export.ps1
+```
+
+Import it later as a new distro:
+```powershell
+./scripts/wsl-import.ps1
+```
+
+Defaults used by the scripts:
+- Distro: `Ubuntu`
+- Export path: `C:\Backups\WSL\ubuntu-dotfiles.tar`
+- Import name: `Ubuntu-Dotfiles`
+- Import path: `C:\WSL\Ubuntu-Dotfiles`
+
 ## Notes
 - This repo is Windows 11 focused.
 - Neovim config lives in a separate repo (kickstart fork): https://github.com/NaxeCode/kickstart.nvim
