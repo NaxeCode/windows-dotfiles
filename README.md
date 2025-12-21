@@ -37,6 +37,12 @@ Defaults used by the scripts:
 - Import name: `Ubuntu-Dotfiles`
 - Import path: `C:\WSL\Ubuntu-Dotfiles`
 
+## WSL setup (fresh install)
+Run inside Ubuntu to install tools and link configs:
+```bash
+bash /mnt/c/Dev/Github/windows-dotfiles/scripts/wsl-setup.sh
+```
+
 ### WSL add-ons
 Install Codex CLI inside WSL:
 ```bash
