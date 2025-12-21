@@ -12,8 +12,10 @@ cache_dir = ""
 
 [opener]
 edit = [
-    { run = 'nvim "%1"', desc = "Edit with Neovim", block = true },
-    { run = 'code "%1"', desc = "Edit with VS Code" },
+    { run = 'nvim "$1"', desc = "Edit with Neovim", block = true, for = "unix" },
+    { run = 'nvim "%1"', desc = "Edit with Neovim", block = true, for = "windows" },
+    { run = 'code "$1"', desc = "Edit with VS Code", for = "unix" },
+    { run = 'code "%1"', desc = "Edit with VS Code", for = "windows" },
 ]
 extract = [
     { run = '7z x "%1"', desc = "Extract here" },

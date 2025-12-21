@@ -1,4 +1,5 @@
 add_newline = false
+scan_timeout = 100
 
 format = """
 [](#3b4261)$os$username$hostname[](fg:#3b4261 bg:#7aa2f7)$directory[](fg:#7aa2f7 bg:#f7768e)$git_branch$git_status$git_state$git_metrics[](fg:#f7768e bg:#9ece6a)$package$nodejs$python$rust$golang[](fg:#9ece6a bg:#7dcfff)$docker_context[](fg:#7dcfff)

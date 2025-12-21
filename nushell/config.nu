@@ -9,16 +9,13 @@
 #
 # See `help config nu` for more options
 
-# Auto-Complete Plugin "carapace"
-source ~/.cache/carapace/init.nu
-
 # Starship
 mkdir ($nu.data-dir | path join "vendor/autoload")
 starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")
 
 # Zoxide
-zoxide init nushell | save -f ($nu.data-dir | path join "vendor/autoload/zoxide.nu")
-source ($nu.data-dir | path join "vendor/autoload/zoxide.nu")
+const zoxide_init = ($nu.data-dir | path join "vendor/autoload/zoxide.nu")
+source $zoxide_init
 
 # -- NuShell config
 $env.config.show_banner = false
@@ -361,4 +358,11 @@ def yy [] {
 # Quick access to browse dev directories
 alias dev-fm = yazi 'C:\Dev\Active\'
 alias games-fm = yazi 'C:\Dev\Games\'
-$env.YAZI_FILE_ONE = $"(scoop prefix git)\\usr\\bin\\file.exe"
+# Ensure YAZI_FILE_ONE points at a valid `file` for each OS.
+if $nu.os-info.name == "windows" {
+    $env.YAZI_FILE_ONE = $"(scoop prefix git)\\usr\\bin\\file.exe"
+} else if ("/usr/bin/file" | path exists) {
+    $env.YAZI_FILE_ONE = "/usr/bin/file"
+} else {
+    $env.YAZI_FILE_ONE = "file"
+}
