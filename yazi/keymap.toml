@@ -1,0 +1,15 @@
+[mgr]
+
+prepend_keymap = [
+    # Edit file with nvim (default action for Enter)
+    { on = [ "<Enter>" ], run = "open", desc = "Open the selected files" },
+    
+    # Quick edit with 'e' key
+    { on = [ "e" ], run = "open --interactive", desc = "Open interactively" },
+    
+    # Force edit with nvim using 'E'
+    { on = [ "E" ], run = '''shell 'nvim "$@"' --block --confirm''', desc = "Edit with nvim" },
+    
+    # Preview toggle
+    { on = [ "T" ], run = "plugin --sync max-preview", desc = "Maximize or restore preview" },
+]

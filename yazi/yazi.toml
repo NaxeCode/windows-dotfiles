@@ -1,0 +1,59 @@
+[mgr]
+show_hidden = true
+sort_by = "mtime"
+sort_reverse = true
+show_symlink = true
+editor = "nvim"
+
+[preview]
+max_width = 600
+max_height = 900
+cache_dir = ""
+
+[opener]
+edit = [
+    { run = 'nvim "%1"', desc = "Edit with Neovim", block = true },
+    { run = 'code "%1"', desc = "Edit with VS Code" },
+]
+extract = [
+    { run = '7z x "%1"', desc = "Extract here" },
+]
+image = [
+    { run = 'start "%1"', desc = "Open with default viewer" },
+]
+
+# PDFs
+pdf = [
+    { run = 'start "$1"', desc = "Open with default viewer" },
+]
+
+# Videos
+video = [
+    { run = 'start "$1"', desc = "Open with default player" },
+]
+
+[open]
+# Programming files
+rules = [
+    { name = "*.{rs,py,js,ts,jsx,tsx,vue,go,c,cpp,h,hpp,java,kt,swift,rb,php,sh,ps1,nu}", use = "edit" },
+    { name = "*.{json,toml,yaml,yml,xml,html,css,scss,less,md,txt,log,cfg,conf,ini}", use = "edit" },
+    
+    # Images
+    { name = "*.{jpg,jpeg,png,gif,bmp,tiff,webp,svg,ico}", use = "image" },
+    
+    # Archives
+    { name = "*.{zip,rar,7z,tar,gz,bz2,xz}", use = "extract" },
+    
+    # Documents
+    { name = "*.pdf", use = "pdf" },
+    
+    # Videos
+    { name = "*.{mp4,avi,mkv,mov,wmv,flv,webm}", use = "video" },
+]
+
+[input]
+# Vim-like keybindings for input
+cursor_blink = true
+
+[log]
+enabled = false
