@@ -37,6 +37,12 @@ Defaults used by the scripts:
 - Import name: `Ubuntu-Dotfiles`
 - Import path: `C:\WSL\Ubuntu-Dotfiles`
 
+### WSL add-ons
+Install Codex CLI inside WSL:
+```bash
+sudo npm install -g @openai/codex
+```
+
 ## Notes
 - This repo is Windows 11 focused.
 - Neovim config lives in a separate repo (kickstart fork): https://github.com/NaxeCode/kickstart.nvim
