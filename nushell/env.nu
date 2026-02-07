@@ -44,6 +44,12 @@ let home_dir = ($env.HOME? | default $env.USERPROFILE?)
 if $home_dir != null {
     $env.PATH = ($env.PATH | prepend $"($home_dir)/.cargo/bin")
 }
+if $home_dir != null and $nu.os-info.name == "linux" {
+    let local_bin = $"($home_dir)/.local/bin"
+    if ($local_bin | path exists) {
+        $env.PATH = ($env.PATH | prepend $local_bin)
+    }
+}
 
 # Homebrew paths (Linux and macOS), added only if present.
 let brew_paths = [

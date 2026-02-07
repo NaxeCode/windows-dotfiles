@@ -104,25 +104,17 @@ alias ... = cd ../..
 alias .... = cd ../../..
 
 # Git shortcuts
-alias g = git status -sb
+alias g = git status
 alias ga = git add
+alias gp = git pull
 alias gs = git switch
 alias gsc = git switch -C
 alias gc = git commit -m
 alias cd = z
 
 # Legacy aliases (updated to new structure)
-alias wrk = cd 'C:\Dev\Active\Work-Main'
-alias gm = cd 'C:\Dev\Games'
 
 # Quick directory listings
-alias ll-active = ls 'C:\Dev\Active\' | sort-by modified | reverse
-alias ll-sandbox = ls 'C:\Dev\Sandbox\' | sort-by modified | reverse
-alias ll-archive = ls 'C:\Dev\Archive\' | sort-by modified | reverse
-alias ll-learning = ls 'C:\Dev\Learning\' | sort-by modified | reverse
-alias ll-games = ls 'C:\Dev\Games\' | sort-by modified | reverse
-alias ll-tools = ls 'C:\Dev\Tools\'
-alias ll-resources = ls 'C:\Dev\Resources\'
 
 # Development shortcuts (using def instead of alias for source command)
 def edit-config [] {
@@ -340,7 +332,6 @@ def dev-stats [] {
 
 # Yazi aliases and functions
 alias y = yazi
-alias fm = yazi
 
 # Function to cd to the directory Yazi last visited
 def yy [] {
@@ -356,8 +347,6 @@ def yy [] {
 }
 
 # Quick access to browse dev directories
-alias dev-fm = yazi 'C:\Dev\Active\'
-alias games-fm = yazi 'C:\Dev\Games\'
 # Ensure YAZI_FILE_ONE points at a valid `file` for each OS.
 if $nu.os-info.name == "windows" {
     $env.YAZI_FILE_ONE = $"(scoop prefix git)\\usr\\bin\\file.exe"
